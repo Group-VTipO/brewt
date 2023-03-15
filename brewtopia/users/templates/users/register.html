@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="{% static 'users/css/style_register.css' %}">
+</head>
+
+<body>
+<form method="post" action="{% url 'users:register' %}">
+    {% csrf_token %}
+    <input checked="" id="signin" name="action" type="radio" value="signin">
+    <label for="signin">Sign in</label>
+    <input id="signup" name="action" type="radio" value="signup">
+    <label for="signup">Sign up</label>
+    <input id="reset" name="action" type="radio" value="reset">
+    <label for="reset">Reset</label>
+    <div id="wrapper">
+        <div id="arrow"></div>
+        <input id="email" name="email" placeholder="Email" type="text">
+        <input id="pass" name="password1" placeholder="Password" type="password">
+        <input id="repass" name="password2" placeholder="Repeat password" type="password">
+        <input id="first_name" name="first_name" placeholder="First Name" type="text">
+        <input id="last_name" name="last_name" placeholder="Last Name" type="text">
+        <input id="phone_number" name="phone_number" placeholder="Phone Number" type="text">
+    </div>
+    <button type="submit">
+    <span>
+      Reset password
+      <br>
+      Sign in
+      <br>
+      Sign up
+    </span>
+    </button>
+</form>
+</body>
+</html>

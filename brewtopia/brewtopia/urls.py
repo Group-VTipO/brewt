@@ -20,3 +20,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('users.urls')),
 ]
+
+handler404 = 'users.Errors.handlers.handle_not_found'
+handler500 = 'users.Errors.handlers.handle_server_error'
+
+

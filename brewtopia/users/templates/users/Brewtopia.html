@@ -1,29 +1,176 @@
 <!DOCTYPE html>
- <html lang="ru">
-  <head>
-  <title >Brewtopia Cafe</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'style.css' %}">
+{% load static %}
 
-</head> 
-<nav class="navbar">
-  <a class="navbar__logo" href="">Brewtopia Cafe</a>
-  <div>
-    <a href="#menu">Menu</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brewtopia Website</title>
+    <!-- ксс косу -->
+    <link rel="stylesheet" href="{% static 'users/css/style.css' %}">
+    <!-- иконки  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
 <body>
-<div>
-  <video src="{% static 'videos/vid.mp4' %}" class="bb"></video>
-</div>
-<img src="{% static 'images/logo mal.png' %}" alt="Перезагрузите страницу" class="left">
-</body>
+<!-- Navbar воот внизу -->
+<header>
+    <a href="#" class="logo"><img src="{% static 'users/images/logo1.png' %}" alt=""></a>
+    <div class="bx bx-menu" id="menu-icon"></div>
 
-<footer>
-  <form action="C:\Users\Admin\Desktop\Brewtopia-Org-master\Contact.html" target="_blank">
-    <button class="btn" >Заказть сейчас</button>
-  </form>
-</footer>
- </html>
+    <ul class="navbar">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#delivery">Delivery</a></li>
+        <li><a href="#app">App</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="{% url 'users:register' %}">Login</a></li>
+    </ul>
+
+
+</header>
+<!-- общая -->
+<section class="home" id="home">
+    <div class="home-text">
+        <span>Welcome To</span>
+        <h1>Brewtopia Coffee</h1>
+        <h2>Если купите 10 капучино <br>сахар бесплатно</h2>
+        <a href="#" class="btn">Присоединяйся</a>
+    </div>
+    <div class="home-img">
+        <img src="{% static 'users/images/home.png' %}" alt="">
+    </div>
+</section>
+<section class="shop" id="shop">
+    <div class="heading">
+        <span>Shop Now</span>
+        <h1>Shop Coffee</h1>
+    </div>
+    <div class="shop-container">
+        <div class="box">
+            <div class="box-img">
+                <img src="{% static 'users/images/shop.png' %}" alt="">
+            </div>
+            <div class="stars">
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star-half'></i>
+            </div>
+            <h2>Brewtopia Coffee</h2>
+            <span>$ 100</span>
+            <a href="{% url 'users:contact' %}" class="btn">Заказывайте прямо сейчас</a>
+        </div>
+
+        <div class="box">
+            <div class="box-img">
+                <img src="{% static 'users/images/shop.png' %}" alt="popo">
+            </div>
+            <div class="stars">
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star-half'></i>
+            </div>
+            <h2>Brewtopia Coffee</h2>
+            <span>$ 100</span>
+            <a href="{% url 'users:contact' %}" class="btn">Заказывайте прямо сейчас</a>
+        </div>
+
+        <div class="box">
+            <div class="box-img">
+                <img src="{% static 'users/images/shop.png' %}" alt="popo">
+            </div>
+            <div class="stars">
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star-half'></i>
+            </div>
+            <h2>Brewtopia Coffee</h2>
+            <span>$ 100</span>
+            <a href="{% url 'users:contact' %}" class="btn">Заказывайте прямо сейчас</a>
+        </div>
+    </div>
+</section>
+<!-- доставочка -->
+<section class="delivery" id="delivery">
+    <div class="heading">
+        <span>Get Now</span>
+        <h1>Order With Yandex</h1>
+    </div>
+    <div class="container">
+        <div class="delivery-img">
+            <img src="{% static 'users/images/no.jpg' %}" alt="popo">
+        </div>
+        <div class="delivery-text">
+            <h2>TEMIRGALY GULFIYA</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam illo pariatur ullam quidem delectus ipsam
+                autem enim a corrupti asperiores!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam illo pariatur ullam quidem delectus ipsam
+                autem enim a corrupti asperiores!</p>
+            <a href="https://instagram.com/gul.pok?igshid=YmMyMTA2M2Y=" class="btn">None</a>
+        </div>
+    </div>
+</section>
+<!-- об нас -->
+<section class="app" id="app">
+    <div class="heading">
+        <span>Our App</span>
+        <h1>Наши кофе самые вкусные отвечаю</h1>
+    </div>
+    <div class="container">
+
+        <div class="app-text">
+            <h2>SAHIEV ZHAMBYL</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam illo pariatur ullam quidem delectus ipsam
+                autem enim a corrupti asperiores!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam illo pariatur ullam quidem delectus ipsam
+                autem enim a corrupti asperiores!</p>
+            <a href="https://instagram.com/_sakhiev_03?igshid=YmMyMTA2M2Y=" class="btn">None</a>
+        </div>
+        <div class="app-img">
+            <img src="{% static 'users/images/no.jpg' %}" alt="popo">
+        </div>
+        'users/images
+    </div>
+</section>
+<!-- еще об нас -->
+<section class="about" id="about">
+    <div class="about-img">
+        <img src="{% static 'users/images/no.jpg' %}" alt="">
+    </div>
+    <div class="about-text">
+        <h2>ARTYKBAEV NURASYL</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam illo pariatur ullam quidem delectus ipsam
+            autem enim a corrupti asperiores!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam illo pariatur ullam quidem delectus ipsam
+            autem enim a corrupti asperiores!</p>
+        <a href="#" class="btn">None</a>
+    </div>
+</section>
+<!-- контакты соц сет кнопки -->
+<section class="contact" id="contact">
+    <div class="social">
+        <a href="#"><i class='bx bxl-facebook'></i></a>
+        <a href="#"><i class='bx bxl-twitter'></i></a>
+        <a href="#"><i class='bx bxl-instagram'></i></a>
+        <a href="#"><i class='bx bxl-youtube'></i></a>
+    </div>
+    <div class="links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms Of Use</a>
+        <a href="#">Our Company</a>
+    </div>
+    <p>&#169; CarpoolVenom All Right Reserved.</p>
+</section>
+
+
+<!-- жс скрипт сюда -->
+<script src="{% static 'users/js/main.js' %"></script>
+</body>
+</html>

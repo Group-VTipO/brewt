@@ -1,72 +1,144 @@
 <!DOCTYPE html>
-<html lang="ru">
+{% load static %}
+<html>
 <head>
-<title>Brewtopia Cafe form</title>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="{% static 'style contact.css' %}">
+    <title>Shop</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    ">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'users/css/style_contact.css' %}">
 </head>
 <body>
-<header>
-    <br>
-    <h1>Brewtopia Cafe Форма заказа</h1>
-</header>
-<form action="#" method="post" enctype="multipart/form-data"> </form>
-    <br>
-    <div>
-        <p>Ваше Имя</p>
-        <input type="text" tabindex="1" placeholder="Имя" name="username">
-    </div>
-    <br>
-    <div>
-        <p>Ваше Фамилия</p>
-        <input type="text" tabindex="2" placeholder="Фамилия" name="usersurname">
-    </div>
-    <br>
-    <div>
-        <p>Номер телефона</p>
-        <input type="tel" tabindex="3" placeholder="Номер телефона" name="userphone">
-    </div>
-    <br>
-    <div>
-        <p>Адрес доставки</p>
-        <input type="еуче" tabindex="4" placeholder="Адрес" name="adress">
-    </div>
-    <br>
-    <div>
-        <p>Выберите напиток</p>
-        <select name="Drinks">
-            <option value="Latte">Латте</option>
-            <option value="Kappucino">Каппучино</option>
-            <option value="Ecspresso">Экспрессо</option>
-            <option selected disabled value="NO">без названия</option>
-        </select>
-    </div>
-    <br>
-    <div>
-        <p>Выберите дополненеие к напитку</p>
-        <br>
-        <div>
-            <input type="checkbox" tabindex="5" name="Fruits" value="yes"> Фрукты
+<main class="page">
+    <section class="shopping-cart dark">
+        <div class="container">
+            <div class="block-heading">
+                <h2>Shopping Cart</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in,
+                    mattis vitae leo.</p>
+            </div>
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-12 col-lg-8">
+                        <div class="items">
+                            <div class="product">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img class="img-fluid mx-auto d-block image" src="assets/img/image.jpg">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="info">
+                                            <div class="row">
+                                                <div class="col-md-5 product-name">
+                                                    <div class="product-name">
+                                                        <a href="#">Lorem Ipsum dolor</a>
+                                                        <div class="product-info">
+                                                            <div>Объем: <span class="value">250мл</span></div>
+                                                            <div>Время готовки: <span class="value">10мин</span></div>
+                                                            <div>Сахар: <span class="value">15гр</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 quantity">
+                                                    <label for="quantity">Quantity:</label>
+                                                    <input id="quantity" type="number" value="1"
+                                                           class="form-control quantity-input">
+                                                </div>
+                                                <div class="col-md-3 price">
+                                                    <span>$1000</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img class="img-fluid mx-auto d-block image" src="assets/img/image.jpg">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="info">
+                                            <div class="row">
+                                                <div class="col-md-5 product-name">
+                                                    <div class="product-name">
+                                                        <a href="#">Lorem Ipsum dolor</a>
+                                                        <div class="product-info">
+                                                            <div>Объем: <span class="value">250мл</span></div>
+                                                            <div>Время готовки: <span class="value">10мин</span></div>
+                                                            <div>Сахар: <span class="value">15гр</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 quantity">
+                                                    <label for="quantity">Quantity:</label>
+                                                    <input id="quantity" type="number" value="1"
+                                                           class="form-control quantity-input">
+                                                </div>
+                                                <div class="col-md-3 price">
+                                                    <span>$120</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img class="img-fluid mx-auto d-block image" src="assets/img/image.jpg">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="info">
+                                            <div class="row">
+                                                <div class="col-md-5 product-name">
+                                                    <div class="product-name">
+                                                        <a href="#">Lorem Ipsum dolor</a>
+                                                        <div class="product-info">
+                                                            <div>Объем: <span class="value">250мл</span></div>
+                                                            <div>Время готовки: <span class="value">10мин</span></div>
+                                                            <div>Сахар: <span class="value">15гр</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 quantity">
+                                                    <label for="quantity">Quantity:</label>
+                                                    <input id="quantity" type="number" value="1"
+                                                           class="form-control quantity-input">
+                                                </div>
+                                                <div class="col-md-3 price">
+                                                    <span>$1500</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-4">
+                        <div class="summary">
+                            <h3>Summary</h3>
+                            <div class="summary-item"><span class="text">Subtotal</span><span class="price">$15000</span>
+                            </div>
+                            <div class="summary-item"><span class="text">Discount</span><span class="price">$15</span>
+                            </div>
+                            <div class="summary-item"><span class="text">Shipping</span><span class="price">$50</span>
+                            </div>
+                            <div class="summary-item"><span class="text">Total</span><span class="price">$1000</span>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <br>
-        <div>
-            <input type="checkbox" tabindex="6" name="Ice" value="yes"> Лёд
-        </div>
-        <br>
-        <div>
-            <input type="checkbox" tabindex="7" name="Korica" value="yes"> Корица
-        </div>
-        <br>
-        <div>
-            <input type="checkbox" tabindex="8" name="Sugar" value="yes"> Сахар
-        </div>
-        <br>
-        <p>Дополнителные пожелания</p>
-        <textarea name="Dop" cols="35" rows="5"></textarea>
-        <br>
-        <div>
-            <button type="sumbit"> Отправить </button>
-            <button type="reset"> Сброс </button>
-        </div>
+    </section>
+</main>
+</body>
+<script src="{% static 'users/js/contact.js' %"></script>
+<script src="{% static 'users/js/contact1.js' %"></script>
 </body>
 </html>

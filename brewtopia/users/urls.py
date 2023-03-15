@@ -1,12 +1,17 @@
 from django.urls import path
 from . import views
-from django.conf import settings
-from django.conf.urls.static import static
+from .views import handle_invalid_email
+from .Errors.handlers import handle_not_found, handle_server_error
+
+app_name = 'users'
 
 urlpatterns = [
     path('', views.Brewtopia_view, name='brewtopia'),
-    path('', views.Contact_view, name='contact')
+    path('contact/', views.Contact_view, name='contact'),
+    path('register/', views.register, name='register')
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+handler404 = handle_not_found
+handler500 = handle_server_error
+handler400 = handle_invalid_email
+
