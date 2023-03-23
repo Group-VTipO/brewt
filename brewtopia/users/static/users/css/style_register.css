@@ -9,10 +9,32 @@ html, body { margin: 0; }
 ::-ms-input-placeholder { color: #DEDFDF; }
 
 body {
-  background: #6ED0F6;
   color: #fff;
   font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
+   background: linear-gradient(-45deg,
+       #ee7752, /* Первый цвет если не понял */
+       #e73c7e, /* Второй цвет если не понял */
+       #23a6d5, /* Третий цвет если не понял */
+       #23d5ab /* Четвертый цвет если не понял */
+     );
+     background-size: 400% 400%;
+     animation: gradient 45s ease infinite;
+     height: 100vh;
+}
+
+@keyframes gradient {/*градик мои*/
+
+ 0% {
+     background-position: 0% 50%;
+ }
+ 50% {
+     background-position: 100% 50%;
+ }
+
+ 100% {
+     background-position: 0% 50%;
+ }
 }
 
 #wrapper, label, #arrow, button span { transition: all .5s cubic-bezier(.6,0,.4,1); }
@@ -40,6 +62,21 @@ form {
   top: 50%;
 }
 
+input[type=text],
+input[type=password] {
+  background: #6ED0F6;
+  border: none;
+  border-radius: 8px;
+  font-size: 27px;
+  font-family: 'Raleway', sans-serif;
+  height: 72px;
+  width: 99.5%;
+  margin-bottom: 10px;
+  opacity: 1;
+  text-indent: 20px;
+  transition: all .2s ease-in-out;
+}
+
 input[type=radio] { display: none; }
 
 label {
@@ -59,22 +96,9 @@ label[for="signin"] { margin-right: 20px; }
 label[for="reset"] { float: right; }
 input[type=radio]:checked + label { opacity: 1; }
 
-input[type=text],
-input[type=password] {
-  background: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 27px;
-  font-family: 'Raleway', sans-serif;
-  height: 72px;
-  width: 99.5%;
-  margin-bottom: 10px;
-  opacity: 1;
-  text-indent: 20px;
-  transition: all .2s ease-in-out;
-}
+
 button {
-  background: #079BCF;
+  background: #EE82EE;
   border: none;
   border-radius: 8px;
   color: #fff;
@@ -95,7 +119,7 @@ button span {
   transform: translate3d(0,0,0);
 }
 button:hover {
-  background: #007BA5;
+  background: #800080;
 }
 
 #arrow {
