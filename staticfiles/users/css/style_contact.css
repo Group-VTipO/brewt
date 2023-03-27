@@ -1,0 +1,72 @@
+/* Body styles */
+body {
+	background-color: lightgray;
+	font-family: Arial, sans-serif;
+	color: #444;
+}
+
+/* Container styles */
+.container {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 30px;
+	background-color: white;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+	border-radius: 10px;
+}
+
+/* Heading styles */
+h1 {
+	text-align: center;
+	margin-bottom: 30px;
+	color: magenta;
+	text-shadow: 2px 2px #eee;
+}
+
+/* Form styles */
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Form group styles */
+.form-group {
+	margin-bottom: 20px;
+}
+
+/* Label styles */
+label {
+	font-weight: bold;
+	color: magenta;
+}
+
+/* Input styles */
+input, select {
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	background-color: lightblue;
+}
+
+/* File input styles */
+input[type="file"] {
+	padding: 0;
+}
+
+/* Button styles */
+button {
+	padding: 10px 20px;
+	border-radius: 5px;
+	border: none;
+	background-color: magenta;
+	color: white;
+	box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	transition: background-color 0.2s ease;
+}
+
+button:hover {
+	background-color: lightgray;
+	color: magenta;
+	cursor: pointer;
+}
