@@ -47,7 +47,7 @@ class UserProfileForm(ModelForm):
         try:
             validate_email(email)
         except ValidationError:
-            raise forms.ValidationError('Пожалуйста, введите действительный адрес электронной почты.')
+            raise forms.ValidationError('Пожалуйста, введите действительный адрес электронной почты. F')
         return email
 
     def clean_phone_number(self):
