@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from .forms import UserProfileForm
+from django.contrib.auth import authenticate, login
 
 
-
-def brewtopia_view(request):
-    return render(request, 'users/Brewtopia.html')
+def home_view(request):
+    return render(request, 'users/home.html')
 
 
 def contact_view(request):
@@ -16,20 +16,23 @@ def handle_invalid_email(request, exception):
 
 
 def create_user(request):
-    error = ''
-
     if request.method == 'POST':
         form = UserProfileForm(request.POST)
         if form.is_valid():
-            user_profile = form.save(commit=False)
-            user_profile.user = request.user
-            user_profile.save()
+            # сохранение нового пользователя
+            user = form.save(commit=False)
+            # установка пароля
+            user.set_password(form.cleaned_data['password'])
+            user.save()
+            # аутентификация и вход
+            user = authenticate(request, email=form.cleaned_data['email'], password=form.cleaned_data['password'])
+            login(request, user)
+            # перенаправление на главную страницу
             return redirect('users:home')
+        else:
+            print(form.errors)  # выведет ошибки в консоль
+
     else:
         form = UserProfileForm()
 
-    data = {
-        'form': form
-    }
-
-    return render(request, 'users/create_user.html', data)
+    return render(request, 'users/create_user.html', {'form': form})

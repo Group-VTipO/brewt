@@ -19,23 +19,16 @@
     <div id="wrapper">
         <div id="arrow"></div>
         {{ form.email }}
+        {% if form.email.errors %}
+    <span class="error">{{ form.email.errors|join:", " }}</span>
+{% endif %}
         {{ form.password }}
-        {{ form.password2 }}
         {{ form.first_name }}
         {{ form.last_name }}
         {{ form.phone_number }}
-    {% if form.errors %}
-        <div class="alert alert-danger">
-            {% for field, errors in form.errors.items %}
-                {% for error in errors %}
-                    {{ error }}
-                {% endfor %}
-            {% endfor %}
-        </div>
-    {% endif %}
         <span>{{ error }}</span>
     </div>
-    <button type="submit">
+    <button type="submit", value="Отправить форму">
     <span>
       Reset password
       <br>

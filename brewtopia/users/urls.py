@@ -6,9 +6,9 @@ from .Errors.handlers import handle_not_found, handle_server_error
 app_name = 'users'
 
 urlpatterns = [
-    path('', views.brewtopia_view, name='home'),
+    path('', views.home_view, name='home'),
     path('contact/', views.contact_view, name='contact'),
-    path('create_user/', views.create_user, name='create_user')
+    path('create_user/', views.create_user, name='create_user'),
 ]
 
 handler404 = handle_not_found

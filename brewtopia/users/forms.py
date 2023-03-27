@@ -1,13 +1,16 @@
 from .models import UserProfile
 from django import forms
 from django.forms import ModelForm, TextInput
-from django.core.validators import RegexValidator, EmailValidator
+from django.core.exceptions import ValidationError
+from django.core.validators import validate_email
+import re
+from password_strength import PasswordPolicy
 
 
 class UserProfileForm(ModelForm):
     class Meta:
         model = UserProfile
-        fields = ['email', 'password', 'password2', 'first_name', 'last_name', 'phone_number']
+        fields = ['email', 'password', 'first_name', 'last_name', 'phone_number']
 
         widgets = {
             "email": TextInput(attrs={
@@ -18,11 +21,6 @@ class UserProfileForm(ModelForm):
             "password": TextInput(attrs={
                 'class': 'form',
                 'placeholder': 'Password',
-                'type': 'password'
-            }),
-            "password2": TextInput(attrs={
-                'class': 'form',
-                'placeholder': 'rePassword',
                 'type': 'password'
             }),
 
@@ -46,43 +44,44 @@ class UserProfileForm(ModelForm):
 
     def clean_email(self):
         email = self.cleaned_data['email']
-        if not EmailValidator()(email):
-            raise forms.ValidationError('Please enter a valid email address.')
+        try:
+            validate_email(email)
+        except ValidationError:
+            raise forms.ValidationError('Пожалуйста, введите действительный адрес электронной почты.')
         return email
 
-    def clean_password(self):
-        password = self.cleaned_data.get('password')
-        password2 = self.cleaned_data.get('password2')
-
-        if len(password) < 8:
-            raise forms.ValidationError('Password should be at least 8 characters long.')
-
-        if password != password2:
-            raise forms.ValidationError("Passwords don't match.")
-
-        return password
+    def clean_phone_number(self):
+        phone_number = self.cleaned_data['phone_number']
+        self.validate_phone_number(phone_number)
+        return phone_number
 
     def clean_first_name(self):
         first_name = self.cleaned_data['first_name']
-        if not first_name.isalpha():
-            raise forms.ValidationError('First name should contain only letters.')
+        if not re.match(r'^[A-Za-z]{1,30}$', first_name):
+            raise forms.ValidationError('Неверный формат имени')
         return first_name
 
     def clean_last_name(self):
         last_name = self.cleaned_data['last_name']
-        if not last_name.isalpha():
-            raise forms.ValidationError('Last name should contain only letters.')
+        if not re.match(r'^[A-Za-z]{1,30}$', last_name):
+            raise forms.ValidationError('Неверный формат фамилии')
         return last_name
 
-    def clean_phone_number(self):
-        phone_number = self.cleaned_data['phone_number']
-        if not RegexValidator(r'^\?\d{10,12}$', message='Please enter a valid phone number.')(phone_number):
-            raise forms.ValidationError('Please enter a valid phone number.')
-        return phone_number
+    @staticmethod
+    def validate_phone_number(value):
+        phone_regex = r''
+        if not re.match(phone_regex, value):
+            raise ValidationError('Неправильный номер телефона.')
 
-    def clean(self):
-        cleaned_data = super().clean()
-        if 'password' in cleaned_data and 'password2' in cleaned_data:
-            if cleaned_data['password'] != cleaned_data['password2']:
-                raise forms.ValidationError("Passwords don't match.")
-        return cleaned_data
+    def clean_password(self):
+        password = self.cleaned_data['password']
+        policy = PasswordPolicy.from_names(
+            length=25,
+            numbers=1,
+        )
+        if policy.test(password):
+            return password
+        else:
+            raise forms.ValidationError(
+                "Password"
+            )
