@@ -3,6 +3,7 @@ from django import forms
 from django.forms import ModelForm, TextInput
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
+from django.contrib.auth.forms import AuthenticationForm
 import re
 from password_strength import PasswordPolicy
 
@@ -19,23 +20,23 @@ class UserProfileForm(ModelForm):
                 'type': 'text'
             }),
             "password": TextInput(attrs={
-                'class': 'form',
+                'class': 'form2',
                 'placeholder': 'Password',
                 'type': 'password'
             }),
 
             "first_name": TextInput(attrs={
-                'class': 'form',
+                'class': 'form1',
                 'placeholder': 'First Name',
                 'type': 'text'
             }),
             "last_name": TextInput(attrs={
-                'class': 'form',
+                'class': 'form1',
                 'placeholder': 'Last Name',
                 'type': 'text'
             }),
             "phone_number": TextInput(attrs={
-                'class': 'form',
+                'class': 'form1',
                 'placeholder': 'Phone Number',
                 'type': 'text'
             }),
@@ -85,3 +86,8 @@ class UserProfileForm(ModelForm):
             raise forms.ValidationError(
                 "Password"
             )
+
+
+class LoginForm(AuthenticationForm):
+    username = forms.EmailField(label='Email')
+    password = forms.CharField(label='Password', widget=forms.PasswordInput)

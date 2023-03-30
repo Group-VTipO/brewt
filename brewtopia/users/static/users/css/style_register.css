@@ -41,7 +41,7 @@ body {
 
 #wrapper { overflow: hidden; }
 
-#signin:checked ~ #wrapper { height: 178px; }
+#signin:checked ~ #wrapper { height: 478px; }
 #signin:checked ~ #wrapper #arrow { left: 32px; }
 #signin:checked ~ button span { transform: translate3d(0,-72px,0); }
 
@@ -49,9 +49,17 @@ body {
 #signup:checked ~ #wrapper #arrow { left: 137px; }
 #signup:checked ~ button span { transform: translate3d(0,-144px,0); }
 
-#reset:checked ~ #wrapper { height: 94px; }
+#reset:checked ~ #wrapper { height: 194px; }
 #reset:checked ~ #wrapper #arrow { left: 404px; }
 #reset:checked ~ button span { transform: translate3d(0,0,0); }
+
+#signin:checked ~ #wrapper .form1 {
+  display: none;
+}
+
+#reset:checked ~ #wrapper .form1.form2 {
+  display: none !important;
+}
 
 form {
   width: 450px;
