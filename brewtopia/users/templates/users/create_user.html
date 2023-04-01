@@ -10,9 +10,9 @@
 <body>
 <form method="post">
     {% csrf_token %}
-    <input checked="" id="signin" name="action" type="radio" value="signin">
+    <input id="signin" name="action" type="radio" value="signin">
     <label for="signin">Sign in</label>
-    <input id="signup" name="action" type="radio" value="signup">
+    <input id="signup" name="action" type="radio" value="signup" checked>
     <label for="signup">Sign up</label>
     <input id="reset" name="action" type="radio" value="reset">
     <label for="reset">Reset</label>
@@ -27,7 +27,7 @@
         {{ form.last_name }}
         {{ form.phone_number }}
     </div>
-    <button type="submit", value="Отправить форму">
+    <button type="submit" name="submit" value="Отправить форму">
     <span>
       Reset password
       <br>

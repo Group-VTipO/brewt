@@ -1,6 +1,4 @@
-$(".info-item .btn").click(function(){
-  $(".container").toggleClass("log-in");
-});
-$(".container-form .btn").click(function(){
-  $(".container").addClass("active");
+document.querySelector('#signin').addEventListener('click', function(event) {
+  event.preventDefault(); // чтобы страница не перезагружалась после нажатия на кнопку
+  // Ваш код для входа здесь
 });

@@ -53,11 +53,13 @@ body {
 #reset:checked ~ #wrapper #arrow { left: 404px; }
 #reset:checked ~ button span { transform: translate3d(0,0,0); }
 
-#signin:checked ~ #wrapper .form1 {
+#signin:checked ~ #wrapper .form1{
   display: none;
 }
-
-#reset:checked ~ #wrapper .form1.form2 {
+#reset:checked ~ #wrapper .form1{
+  display: none !important;
+}
+#reset:checked ~ #wrapper .form2{
   display: none !important;
 }
 
