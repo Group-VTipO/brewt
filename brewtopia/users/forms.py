@@ -90,4 +90,5 @@ class UserProfileForm(ModelForm):
 
 class LoginForm(AuthenticationForm):
     username = forms.EmailField(label='Email')
+
     password = forms.CharField(label='Password', widget=forms.PasswordInput)

@@ -13,17 +13,17 @@ body {
   font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
    background: linear-gradient(-45deg,
-       #ee7752, /* Первый цвет если не понял */
-       #e73c7e, /* Второй цвет если не понял */
-       #23a6d5, /* Третий цвет если не понял */
-       #23d5ab /* Четвертый цвет если не понял */
+       #ee7752,
+       #e73c7e,
+       #23a6d5,
+       #23d5ab
      );
      background-size: 400% 400%;
-     animation: gradient 45s ease infinite;
+     animation: gradient 10s ease infinite;
      height: 100vh;
 }
 
-@keyframes gradient {/*градик мои*/
+@keyframes gradient {
 
  0% {
      background-position: 0% 50%;
@@ -41,15 +41,15 @@ body {
 
 #wrapper { overflow: hidden; }
 
-#signin:checked ~ #wrapper { height: 478px; }
+#signin:checked ~ #wrapper { height: 178px; }
 #signin:checked ~ #wrapper #arrow { left: 32px; }
 #signin:checked ~ button span { transform: translate3d(0,-72px,0); }
 
-#signup:checked ~ #wrapper { height: 452px; }
+#signup:checked ~ #wrapper { height: 430px; }
 #signup:checked ~ #wrapper #arrow { left: 137px; }
 #signup:checked ~ button span { transform: translate3d(0,-144px,0); }
 
-#reset:checked ~ #wrapper { height: 194px; }
+#reset:checked ~ #wrapper { height: 94px; }
 #reset:checked ~ #wrapper #arrow { left: 404px; }
 #reset:checked ~ button span { transform: translate3d(0,0,0); }
 
