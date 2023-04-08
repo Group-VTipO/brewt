@@ -1,5 +1,4 @@
 from django.db import models
-
 # Create your models here.
 class Product(models.Model):
     name = models.CharField(max_length=64, blank=True, default=None)
@@ -9,7 +8,7 @@ class Product(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __str__(self):
-        return self.id
+        return self.name
 
     class Meta:
         verbose_name = 'Товар'
@@ -23,7 +22,7 @@ class ProductImage(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
     class Meta:
         verbose_name = 'Фотография'
