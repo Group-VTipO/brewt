@@ -47,4 +47,3 @@ def login_view(request):
         form = LoginForm()
         error_message = ''
     return render(request, 'users/login.html', {'form': form, 'error_message': error_message})
-

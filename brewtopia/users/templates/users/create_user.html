@@ -19,9 +19,6 @@
     <div id="wrapper">
         <div id="arrow"></div>
         {{ form.email }}
-        {% if form.email.errors %}
-    <span class="error">{{ form.email.errors|join:", " }}</span>
-{% endif %}
         {{ form.password }}
         {{ form.first_name }}
         {{ form.last_name }}
@@ -36,6 +33,7 @@
       Sign up
     </span>
     </button>
+    <button>Sign in</button>
 </form>
 </body>
 </html>
