@@ -6,4 +6,3 @@ from .forms import UserProfileForm, LoginForm
 def home_view(request):
     return render(request, 'users/base.html')
 
-

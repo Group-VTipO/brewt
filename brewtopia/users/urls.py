@@ -5,5 +5,5 @@ from .Errors.handlers import handle_not_found, handle_server_error
 app_name = 'users'
 
 urlpatterns = [
-    path('', views.home_view, name='home'),
+    path('', views.home_view, name='shop'),
 ]
