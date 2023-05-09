@@ -21,3 +21,15 @@ def shop(request, category_slug=None):
     }
     return render(request, 'shop/shop.html', context)
 
+def product_info(request, category_slug, product_slug):
+    try:
+        one_product = Product.objects.get(category__slug=category_slug, slug = product_slug)
+    except Exception as e:
+        raise e
+    
+    context = {
+        'one_product':one_product,
+    }
+
+    return render(request, 'shop/product_info.html', context)
+
