@@ -45,9 +45,9 @@
                                 <a href="#"> Выйти </a>
                             </div>
                         </div>
-                        <a href="#" class="widget-header pl-3 ml-3">
+                        <a href="{% url 'order' %}" class="widget-header pl-3 ml-3">
                             <div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></div>
-                            <span class="badge badge-pill badge-danger notify"></span>
+                            <span class="badge badge-pill badge-danger notify">{{ order_count }}</span>
                         </a>
                     </div> <!-- widgets-wrap.// -->
                 </div> <!-- col.// -->
