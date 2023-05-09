@@ -6,10 +6,10 @@
 <section class="section-content padding-y bg">
     <div class="container">  
     {% if not order_items %}
-    <h2 class="text-center">Your Shopping Cart is Empty</h2>
+    <h2 class="text-center">Ваша корзина пуста</h2>
     <br>
     <div class="text-center">
-        <a href="{% url 'shop' %}" class="btn btn-primary">Continue Shopping</a>
+        <a href="{% url 'shop' %}" class="btn btn-info">Магазин</a>
     </div>
     </br>
     {% else %}
@@ -75,7 +75,7 @@
                   <dd class="text-right">{{ total }} KZT</dd>
                 </dl>
                 <dl class="dlist-align">
-                  <dt>Налог:</dt>
+                  <dt>Комиссия:</dt>
                   <dd class="text-right"> {{ tax }} KZT</dd>
                 </dl>
                 <dl class="dlist-align">
@@ -86,7 +86,7 @@
                 <p class="text-center mb-3">
                     <img src="{% static './images/misc/payments.png' %}" height="26">
                 </p>
-                <a href="#" class="btn btn-primary btn-block"> Касса </a>
+                <a href="{% url 'pay' %}" class="btn btn-info btn-block"> Касса </a>
                 <a href="{% url 'shop' %}" class="btn btn-light btn-block">Магазин</a>
             </div> 
             </div> 

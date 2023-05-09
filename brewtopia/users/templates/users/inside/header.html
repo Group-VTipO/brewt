@@ -24,7 +24,7 @@
         </div> <!-- col.// -->
         <a href="{% url 'shop' %}" class="btn btn-outline-info">Магазин</a>
         <div class="col-lg  col-md-6 col-sm-12 col">
-            <form action="#" class="search" method="GET">
+            <form action="{% url 'search' %}" class="search" method="GET">
                 <div class="input-group w-100">
                     <input type="text" class="form-control" style="width:60%;" placeholder="Search" name="keyword">
                     
@@ -38,13 +38,23 @@
         </div> <!-- col.// -->
         <div class="col-lg-3 col-sm-6 col-8 order-2 order-lg-3">
                     <div class="d-flex justify-content-end mb-3 mb-lg-0">
+                        {% if user.id is not None %}
                         <div class="widget-header">
-                            <small class="title text-muted">Добро пожаловать !</small>
+                            <small class="title text-muted">Добро пожаловать {{ user.first_name }}!</small>
                             <div> 
-                                <a href="#">Профиль</a> <span class="dark-transp"> | </span>
-                                <a href="#"> Выйти </a>
+                                <a href="#"></a> <span class="dark-transp"> | </span>
+                                <a href="{% url 'users:logout' %}"> Выйти </a>
                             </div>
                         </div>
+                        {% else %}
+                        <div class="widget-header">
+                            <small class="title text-muted">Добро пожаловать гость!</small>
+                            <div> 
+                                <a href="{% url 'users:login' %}">Войти</a> <span class="dark-transp"> | </span>
+                                <a href="{% url 'users:register' %}"> Регистрация </a>
+                            </div>
+                        </div>
+                        {% endif %}
                         <a href="{% url 'order' %}" class="widget-header pl-3 ml-3">
                             <div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></div>
                             <span class="badge badge-pill badge-danger notify">{{ order_count }}</span>

@@ -7,7 +7,10 @@ def counter(request):
     else:
         try:
             order = Order.objects.filter(order_id=_order_id(request))
-            order_items = OrderItem.objects.all().filter(order=order[:1]) 
+            if request.user.is_authenticated:
+                order_items = OrderItem.objects.all().filter(user=request.user) 
+            else:
+                order_items = OrderItem.objects.all().filter(order=order[:1]) 
             for order_item in order_items:
                 order_count += order_item.quantity
         except Order.DoesNotExist:
